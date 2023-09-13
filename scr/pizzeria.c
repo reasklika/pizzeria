@@ -58,7 +58,7 @@ void* routine(void* args) {
             pthread_cond_wait(&condMess, &mutexMess);
         }
         screen--;
-        printf("Order no. %d succeeded\n", id);
+        printf("Order no. %d was successful\n", id);
         screen++;
         pthread_cond_signal(&condMess);
         pthread_mutex_unlock(&mutexMess);
@@ -121,7 +121,7 @@ void* routine(void* args) {
        	pthread_cond_wait(&condMess, &mutexMess);
     }
     screen--;
-    printf("Order with order id %d was prepared in %ld minutes.\n", id, min_prep);
+    printf("Order %d was prepared in %ld minutes.\n", id, min_prep);
     screen++;
     pthread_cond_signal(&condMess);
     pthread_mutex_unlock(&mutexMess);
@@ -149,7 +149,7 @@ void* routine(void* args) {
        	pthread_cond_wait(&condMess, &mutexMess);
     }
     screen--;
-    printf("Order with order id %d was delivered in %ld minutes.\n", id, min);
+    printf("Order %d was delivered in %ld minutes.\n", id, min);
     screen++;
     pthread_cond_signal(&condMess);
     pthread_mutex_unlock(&mutexMess);
